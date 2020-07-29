@@ -1,0 +1,34 @@
+While NMAP is running Push:
+	C = to show the current step
+	P = to show live progress
+	d/D = to increase Debugging 
+
+
+Working:
+	nmap [type scan] [options] [target(s)]
+
+Type Scan:
+	SYN scan = -sS
+	TCP connect scan = -sT
+	FIN scan = -sF
+	Null scan = -sN
+	Ping scan = -sP
+	... etc
+
+
+Type Options: 
+	-sV = detailed versions of the ports 
+	-A = detailed version of Operation System
+	-f = break the packets into piece and send to target, so Firewall will not detect
+	-D [Fake Ip] option = to send packets to target like given Fake IP
+
+Type Export: 
+	-oN [File_name.txt] = export the file in .txt
+	-oX [File_name.xml] = export the file in .xml
+
+Good And Fast Nmap Commands:
+nmap -sS -sV -sC -A -f [Target]
+
+Scan all hosts from 2 to 254 and ports in a network:
+nmap [IP ex.: 192.168.100].2-254 -vv
+

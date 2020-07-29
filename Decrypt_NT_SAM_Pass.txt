@@ -1,0 +1,5 @@
+Best tool:
+ophcrack
+
+-> "Load" the file 
+-> "Crack" and wait

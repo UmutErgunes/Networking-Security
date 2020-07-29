@@ -1,0 +1,13 @@
+IF Port 445 OR 139 open: 
+
+==> see version SMB in MSFCONSOLE:
+
+ use auxiliary/scanner/smb/smb_version
+
+==> see if it is Vulnb.:
+
+use auxiliary/scanner/smb/smb_ms17_010
+
+==> Scanner/search for vulnb.:
+
+use auxiliary/scanner/smb/  =>> press tab for see the options

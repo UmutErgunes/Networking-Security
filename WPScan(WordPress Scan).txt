@@ -1,0 +1,17 @@
+#Update WPScan:
+wpscan –update
+
+#Scan an URL:
+wpscan -u (exemple.com)
+
+#Scan and Get Usernames (sometimes doesn't work):
+wpscan -u (exemple.com) –enumerate u
+
+#We can see the vulnerabilities in the Plugins installed:
+wpscan -u (exemple.com) –enumerate p
+
+#We can see vulnerabilities in the theme:
+wpscan -u (exemple.com) –enumerate t
+
+#You can perform a Timthumb (Image reduction plugin) scan and see the vulnerabilities
+wpscan -u hedefsitemiz.com –enumerate tt
