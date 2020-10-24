@@ -5,10 +5,10 @@
 ### [Networking Packet Tracer](https://github.com/UmutErgunes/Networking-Security/tree/master/Networking%20-%20Cisco)
 Content:
   Designing different Network Topologies and configuration of:
-    - Area: LAN / WAN / VLANs
-    - Protocols & Methods: DNS / HTTP / NAT / SSH 
-    - Routing: OSPF / EIGRP / BGP 
-    - Security: Advanced Security (limited configuration by packet tracer)
+      - Area: LAN / WAN / VLANs
+      - Protocols & Methods: DNS / HTTP / NAT / SSH 
+      - Routing: OSPF / EIGRP / BGP 
+      - Security: Advanced Security (limited configuration by packet tracer)
 
 ### [Hack The Box Machines](https://github.com/UmutErgunes/Networking-Security/tree/master/HackTheBox-Machines)
 Content:
