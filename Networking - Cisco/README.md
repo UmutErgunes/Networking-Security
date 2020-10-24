@@ -11,4 +11,10 @@ In our daily life without us being aware there are still routers being configure
 #### DNS
 By adding DNS server I have shown an example here how the DNS providers actually work.
 
+#### VLAN
+There is hardly any LAN that does not use a VLAN. Almost all companies use VLAN for different departments in their company. In this packet tracer I kept it simple and created 2 VLAN.
+
+Subnet:
+  - The network address of VLAN10: 192.168.10.0
+  - The network address of VLAN20 : 192.168.20.0
 
