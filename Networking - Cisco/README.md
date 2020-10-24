@@ -17,4 +17,8 @@ There is hardly any LAN that does not use a VLAN. Almost all companies use VLAN 
 Subnet:
   - The network address of VLAN10: 192.168.10.0
   - The network address of VLAN20 : 192.168.20.0
+  
+  
+#### STP
+I also configured STP to avoid loops between Switches
 
