@@ -22,3 +22,6 @@ Subnet:
 #### STP
 I also configured STP to avoid loops between Switches
 
+#### TACACS+
+I configured TACACS+ server at 1 LAN (Africa). I think TACACS+ is better than Radius, because at TACACS+ the entire packages are encrypted while at RADIUS, only the password is encrypted. Therefore TACACS+ is better.
+
