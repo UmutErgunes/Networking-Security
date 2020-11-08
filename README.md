@@ -13,6 +13,9 @@ Designing different Network Topologies and configuration of:
 ### [Hack The Box Machines](https://github.com/UmutErgunes/Networking-Security/tree/master/HackTheBox-Machines)
 Content:
   There are answers in this folder. Do not open, if you do not want a spoiler.
+  - Blunder
+  - Cascade
+  - Sauna
 
 ### [Tools & Vulnerabilities](https://github.com/UmutErgunes/Networking-Security/tree/master/Vulnerabilities)
 Content: 
