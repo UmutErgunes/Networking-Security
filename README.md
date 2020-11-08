@@ -19,6 +19,9 @@ Content:
   Tools that I use most and vulnerabilities that I encounter most
    - Post-Explotaition
    - SMB 
+   - WordPress
+   - NFS
+   - Nmap
     
 
 
