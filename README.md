@@ -17,8 +17,8 @@ Content:
 ### [Tools & Vulnerabilities](https://github.com/UmutErgunes/Networking-Security/tree/master/Vulnerabilities)
 Content: 
   Tools that I use most and vulnerabilities that I encounter most
-    - Post-Explotaition
-    - SMB 
+   - Post-Explotaition
+   - SMB 
     
 
 
