@@ -11,3 +11,14 @@ use auxiliary/scanner/smb/smb_ms17_010
 ==> Scanner/search for vulnb.:
 
 use auxiliary/scanner/smb/  =>> press tab for see the options
+
+
+
+==> If allowed, get anonymous files
+
+smbclient -L  \\\\(target)\\
+
+
+==> when you get any sharename try:
+
+smbclient \\\\(target)\\(sharename)
